@@ -33,7 +33,7 @@ body {
 
 .typing-text {
     background-color: #E3FDFD;
-    padding: 10px;
+
     text-align: justify;
 
 }
@@ -96,7 +96,7 @@ button {
     background-repeat: no-repeat;
     background-size: 0 2px, 0 100%, 0% 2px;
     background-position: top center, top center, bottom center;
-    -webkit-animation: drawBorderFromCenter 60s;
+    animation: drawBorderFromCenter 60s;
 }
 
 .content2 {
@@ -105,7 +105,7 @@ button {
 }
 
 /* Chrome, Safari, Opera */
-@-webkit-keyframes drawBorderFromCenter {
+@keyframes drawBorderFromCenter {
     0% {
         background-size: 0 2px, 0 0, 100% 100%;
     }
