@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Typing Speed Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="content-box">
+            <input type="text" name="typing" id="type" oninput="textInput()">
+            <div class="typing-text">
+                <p id="typingText">What is Bangladesh famous for? It is home to the world's largest river delta, which
+                    is formed by the
+                    Brahmaputra and the
+                    Ganges river. Roaming Bengal tigers in the Sundarbans, a mangrove and swampland in the delta. For
+                    the
+                    longest natural
+                    uninterrupted sea beach in Asia (Cox's Bazar beach), which is 150 km long.</p>
+            </div>
+            <div class="content">
+                <div class="output-result">
+                    <ul>
+                        <li class="time-lefft">
+                            <p>Time Left:</p>
+                            <span id="time">60</span>
+                        </li>
+                        <li class="mistake">
+                            <p>Mistake:</p>
+                            <span id="mistake">0</span>
+                        </li>
+                        <li class="wpm">
+                            <p>Wpm:</p>
+                            <span>60</span>
+                        </li>
+                        <li class="cpm">
+                            <p>CPM:</p>
+                            <span>0</span>
+                        </li>
+                        <li>
+                            <button>Try Again</button>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+
+
+
+        function textInput(params) {
+            let typedText = document.getElementById("type").value;
+            let paragraph = document.getElementById("typingText").innerText;
+
+            typedText = typedText.split("");
+            paragraph = paragraph.split("");
+
+            let correctCount = 0;
+            let incorrect = 1;
+            for (let index = 0; index < typedText.length; index++) {
+
+                const element = paragraph[index];
+                if (paragraph[index] === typedText[index]) {
+                    correctCount++;
+
+                    paragraph[index] = `<span class="active">${paragraph[index]}</span>`;
+
+                    document.getElementById("typingText").innerHTML = paragraph.join("");
+
+                }
+                else {
+
+
+                    paragraph[index] = `<span class="red">${paragraph[index]}</span>`;
+                    document.getElementById("mistake").innerText = incorrect++;
+                    document.getElementById("typingText").innerHTML = paragraph.join("");
+                }
+            }
+            console.log("correctCount", correctCount);
+            console.log("incorrect", incorrect);
+        }
+
+
+        function readyToType() {
+            document.addEventListener("keypress", () => {
+                document.getElementById("type").focus();
+
+            });
+        }
+
+        readyToType();
+
+
+        function timeCount() {
+            let timeCc = 60;
+            document.getElementById("time").innerText = timeCc--;
+            if (timeCc == 0) {
+                clearInterval(myIntervel)
+            }
+
+        }
+
+        let myIntervel = setInterval(timeCount(), 1000);
+
+    </script>
+</body>
+
+</html>
