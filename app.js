@@ -19,6 +19,7 @@ function textInput(params) {
         if (!isTyping) {
             timer = setInterval(intTimer, 1000);
             isTyping = true;
+            document.getElementById("border").classList.add("box")
         }
 
 
@@ -48,6 +49,7 @@ function textInput(params) {
         wpmCount = wpmCount < 0 || !wpmCount || wpmCount === Infinity ? 0 : wpmCount;
         document.getElementById("wpm").innerText = wpmCount;
         document.getElementById("cpm").innerText = correctCount;
+
     }
     else {
         clearInterval(timer);

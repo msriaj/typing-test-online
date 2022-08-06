@@ -35,7 +35,7 @@ body {
     background-color: #E3FDFD;
     padding: 10px;
     text-align: justify;
-    border-radius: 10px;
+
 }
 
 ul {
@@ -82,4 +82,43 @@ button {
 #type {
     opacity: 0;
 
+}
+
+.box {
+    margin: 0 auto;
+    padding: 2px;
+    background-color: #a80505;
+    /* gold */
+    /* Single pixel data uri image http://jsfiddle.net/LPxrT/ 
+  /* background-image: gold, gold, white */
+    background-image: url('data:image/gif;base64,R0lGODlhAQABAPAAAOqrAP///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=='), url('data:image/gif;base64,R0lGODlhAQABAPAAAOqrAP///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=='),
+        url('data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==');
+    background-repeat: no-repeat;
+    background-size: 0 2px, 0 100%, 0% 2px;
+    background-position: top center, top center, bottom center;
+    -webkit-animation: drawBorderFromCenter 60s;
+}
+
+.content2 {
+    background: #fff;
+    padding: 2em;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes drawBorderFromCenter {
+    0% {
+        background-size: 0 2px, 0 0, 100% 100%;
+    }
+
+    20% {
+        background-size: 100% 2px, 100% 0, 100% 100%;
+    }
+
+    66% {
+        background-size: 100% 2px, 100% 98%, 100% 100%;
+    }
+
+    99% {
+        background-size: 100% 2px, 100% 98%, 0 2px;
+    }
 }
