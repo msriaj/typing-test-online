@@ -60,17 +60,22 @@ li p {
 }
 
 button {
-    background-color: #71C9CE;
+    background-color: #064246;
     padding: 1rem 1.5rem;
     border: none;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px #ddd;
 }
 
 .active {
     background-color: rgba(21, 201, 21, 0.2);
+    text-decoration: line-through;
 }
 
 .red {
     background-color: rgba(255, 5, 5, 0.705);
+    text-decoration: line-through;
 }
 
 #type {

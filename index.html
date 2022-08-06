@@ -36,11 +36,11 @@
                         </li>
                         <li class="wpm">
                             <p>Wpm:</p>
-                            <span>60</span>
+                            <span id="wpm">0</span>
                         </li>
                         <li class="cpm">
                             <p>CPM:</p>
-                            <span>0</span>
+                            <span id="cpm">0</span>
                         </li>
                         <li>
                             <button>Try Again</button>
@@ -55,38 +55,54 @@
 
     <script>
 
-
+        let timer, maxTime = 60, timeLeft = maxTime;
+        let isTyping;
 
         function textInput(params) {
+            let correctCount = 0;
+            let incorrect = 1;
             let typedText = document.getElementById("type").value;
             let paragraph = document.getElementById("typingText").innerText;
 
-            typedText = typedText.split("");
-            paragraph = paragraph.split("");
+            if (correctCount + incorrect < paragraph.length - 1 && timeLeft > 0) {
 
-            let correctCount = 0;
-            let incorrect = 1;
-            for (let index = 0; index < typedText.length; index++) {
-
-                const element = paragraph[index];
-                if (paragraph[index] === typedText[index]) {
-                    correctCount++;
-
-                    paragraph[index] = `<span class="active">${paragraph[index]}</span>`;
-
-                    document.getElementById("typingText").innerHTML = paragraph.join("");
-
+                if (!isTyping) {
+                    timer = setInterval(intTimer, 1000);
+                    isTyping = true;
                 }
-                else {
 
 
-                    paragraph[index] = `<span class="red">${paragraph[index]}</span>`;
-                    document.getElementById("mistake").innerText = incorrect++;
-                    document.getElementById("typingText").innerHTML = paragraph.join("");
+                typedText = typedText.split("");
+                paragraph = paragraph.split("");
+
+
+                for (let index = 0; index < typedText.length; index++) {
+
+                    const element = paragraph[index];
+                    if (paragraph[index] === typedText[index]) {
+                        correctCount++;
+
+                        paragraph[index] = `<span class="active">${paragraph[index]}</span>`;
+
+
+                        document.getElementById("typingText").innerHTML = paragraph.join("");
+
+                    }
+                    else {
+                        paragraph[index] = `<span class="red">${paragraph[index]}</span>`;
+                        document.getElementById("mistake").innerText = incorrect++;
+                        document.getElementById("typingText").innerHTML = paragraph.join("");
+                    }
                 }
+                let wpmCount = Math.round(((correctCount / 5) / (maxTime - timeLeft)) * 60);
+                wpmCount = wpmCount < 0 || !wpmCount || wpmCount === Infinity ? 0 : wpmCount;
+                document.getElementById("wpm").innerText = wpmCount;
+                document.getElementById("cpm").innerText = correctCount;
             }
-            console.log("correctCount", correctCount);
-            console.log("incorrect", incorrect);
+            else {
+                clearInterval(timer);
+            }
+
         }
 
 
@@ -99,17 +115,18 @@
 
         readyToType();
 
+        function intTimer() {
+            if (timeLeft > 0) {
+                timeLeft--;
+                document.getElementById("time").innerText = timeLeft;
 
-        function timeCount() {
-            let timeCc = 60;
-            document.getElementById("time").innerText = timeCc--;
-            if (timeCc == 0) {
-                clearInterval(myIntervel)
+
             }
-
+            else {
+                clearInterval(timer)
+            }
         }
 
-        let myIntervel = setInterval(timeCount(), 1000);
 
     </script>
 </body>
