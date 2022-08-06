@@ -70,12 +70,13 @@ button {
 
 .active {
     background-color: rgba(21, 201, 21, 0.2);
-    text-decoration: line-through;
+    font-weight: 700;
 }
 
 .red {
     background-color: rgba(255, 5, 5, 0.705);
-    text-decoration: line-through;
+    font-weight: 700;
+    text-decoration: dashed;
 }
 
 #type {

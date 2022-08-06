@@ -43,7 +43,7 @@
                             <span id="cpm">0</span>
                         </li>
                         <li>
-                            <button>Try Again</button>
+                            <button onclick="readyToType()">Try Again</button>
                         </li>
                     </ul>
                 </div>
@@ -54,7 +54,35 @@
     </div>
 
     <script>
+        const listOfpera = [
+            "Black roses are symbols featured in fiction with many different meanings and titles such as black velvet rose, black magic, barkarole, black beauty, Tuscany superb, black jade, and baccara. The roses commonly called black roses are technically a very dark shade of red, purple or maroon.The color of a rose may be deepened by placing a dark rose in a vase of water mixed with black ink.Other black roses may be blackened by other methods such as burning.",
 
+            "Dear Future Husband is a song by American singer - songwriter Meghan Trainor.It was included on Title, her 2014 extended play, and later on her 2015 studio album of the same name.Trainor wrote the song with its producer Kevin Kadish.Epic Records released Dear Future Husband as the album's third single on March 17, 2015. A doo-wop and pop song, it has lyrics about chivalry and dating. In it Trainor lists things a potential romantic suitor needs to do to win her affection.",
+
+            "What is Bangladesh famous for? It is home to the world's largest river delta, which is formed by the Brahmaputra and the Ganges river.Roaming Bengal tigers in the Sundarbans, a mangrove and swampland in the delta.For the longest natural uninterrupted sea beach in Asia(Cox's Bazar beach), which is 150 km long.",
+            "From Chittagong a 77 kilometres (48 mi) road leads to Rangamati. The township is located on the western bank of the Kaptai lake. Rangamati is a holiday destination because of its landscape, scenic beauty, lake, indigenous groups (Chakma, Marma, Tripuri, Tanchangya Pangkhua etc.), flora and fauna, indigenous museum, hanging bridge etc.",
+
+            "Sajek valley is known for its natural environment and is surrounded by mountains, dense forest, and grassland hill tracks. Many small rivers flow through the mountains among which the Kachalong and the Machalong are notable. On the way to Sajek valley, one has to cross the Mayni range and the Mayni river. The road to Sajek has high peaks and falls.",
+
+            "Essay topics in English can be difficult to come up with. While writing essays, many college and high school students face writer’s block and have a hard time to think about topics and ideas for an essay. In this article, we will list out many good essay topics from different categories like argumentative essays, essays on technology, environment essays for students from 5th, 6th, 7th, 8th grades. Following list of essay topics are for all – from kids to college students. We have the largest collection of essays. ",
+
+            "A letter is a written message that can be handwritten or printed on paper. It is usually sent to the recipient via mail or post in an envelope, although this is not a requirement as such. Any such message that is transferred via post is a letter, a written conversation between two parties.",
+            "Let us first understand that there are broadly two types of letter, namely Formal Letters, and Informal Letters. But then there are also a few types of letters based on their contents, formalities, the purpose of letter writing etc. Let us have a look at the few types of letters.",
+            "Black roses are symbols featured in fiction with many different meanings and titles such as black velvet rose, black magic, barkarole, black beauty, Tuscany superb, black jade, and baccara. The roses commonly called black roses are technically a very dark shade of red, purple or maroon.The color of a rose may be deepened by placing a dark rose in a vase of water mixed with black ink.Other black roses may be blackened by other methods such as burning.",
+
+            "Dear Future Husband is a song by American singer - songwriter Meghan Trainor.It was included on Title, her 2014 extended play, and later on her 2015 studio album of the same name.Trainor wrote the song with its producer Kevin Kadish.Epic Records released Dear Future Husband as the album's third single on March 17, 2015. A doo-wop and pop song, it has lyrics about chivalry and dating. In it Trainor lists things a potential romantic suitor needs to do to win her affection.",
+
+            "What is Bangladesh famous for? It is home to the world's largest river delta, which is formed by the Brahmaputra and the Ganges river.Roaming Bengal tigers in the Sundarbans, a mangrove and swampland in the delta.For the longest natural uninterrupted sea beach in Asia(Cox's Bazar beach), which is 150 km long.",
+
+            "From Chittagong a 77 kilometres (48 mi) road leads to Rangamati. The township is located on the western bank of the Kaptai lake. Rangamati is a holiday destination because of its landscape, scenic beauty, lake, indigenous groups (Chakma, Marma, Tripuri, Tanchangya Pangkhua etc.), flora and fauna, indigenous museum, hanging bridge etc.",
+
+            "Sajek valley is known for its natural environment and is surrounded by mountains, dense forest, and grassland hill tracks. Many small rivers flow through the mountains among which the Kachalong and the Machalong are notable. On the way to Sajek valley, one has to cross the Mayni range and the Mayni river. The road to Sajek has high peaks and falls.",
+
+            "Essay topics in English can be difficult to come up with. While writing essays, many college and high school students face writer’s block and have a hard time to think about topics and ideas for an essay. In this article, we will list out many good essay topics from different categories like argumentative essays, essays on technology, environment essays for students from 5th, 6th, 7th, 8th grades. Following list of essay topics are for all – from kids to college students. We have the largest collection of essays. ",
+
+            "A letter is a written message that can be handwritten or printed on paper. It is usually sent to the recipient via mail or post in an envelope, although this is not a requirement as such. Any such message that is transferred via post is a letter, a written conversation between two parties.",
+            "Let us first understand that there are broadly two types of letter, namely Formal Letters, and Informal Letters. But then there are also a few types of letters based on their contents, formalities, the purpose of letter writing etc. Let us have a look at the few types of letters."
+        ]
         let timer, maxTime = 60, timeLeft = maxTime;
         let isTyping;
 
@@ -111,6 +139,8 @@
                 document.getElementById("type").focus();
 
             });
+            document.getElementById("typingText").innerText = listOfpera[Math.floor(Math.random() * 11)];
+
         }
 
         readyToType();
